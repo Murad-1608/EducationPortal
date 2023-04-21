@@ -1,0 +1,260 @@
+﻿@model Entity.Concrete.Vacancy
+
+<section class="page-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-8">
+                <div class="title-block">
+                    <h1>@Model.Name</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a asp-controller="vacancy" asp-action="index">Vakansiyalar</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            @Model.Name
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-wrapper edutim-course-single edutim-course-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="tab-content edutim-course-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="single-course-details ">
+                            <h4 class="course-title">İş barədə məlumat</h4>
+                            <p style="white-space: pre-line">
+                                @Model.JobInformation
+                            </p>
+
+
+                            <div class="course-widget course-info">
+                                <h4 class="course-title">Namizədə tələblər</h4>
+                                <p style="white-space: pre-line">
+                                    @Model.Requirements
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-topics" role="tabpanel" aria-labelledby="nav-topics-tab">
+                        <div class="edutim-course-curriculum ">
+                            <div class="curriculum-scrollable">
+                                <ul class="curriculum-sections">
+                                    <li class="section">
+                                        <div class="section-header">
+                                            <div class="section-left">
+                                                <h5 class="section-title">Section 1</h5>
+                                                <p class="section-desc">Dacere agemusque constantius concessis elit videmusne quia stoici constructio dissimillimas audiunt homerus commendationes</p>
+                                            </div>
+                                        </div>
+
+                                        <ul class="section-content">
+                                            <li class="course-item has-status course-item-lp_lesson">
+                                                <a class="section-item-link" href="#">
+                                                    <span class="item-name">Lesson 1</span>
+                                                    <div class="course-item-meta">
+                                                        <span class="item-meta duration">10 min</span>
+                                                        <i class="item-meta course-item-status"></i>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="course-item has-status course-item-lp_lesson">
+                                                <a class="section-item-link" href="#">
+                                                    <span class="item-name">Lesson 2</span>
+                                                    <div class="course-item-meta">
+                                                        <span class="item-meta duration">30 min</span>
+                                                        <i class="item-meta course-item-status"></i>
+                                                    </div>
+                                                </a>
+
+                                            </li>
+                                            <li class="course-item course-item-lp_quiz course-item-lp_lesson">
+                                                <a class="section-item-link" href="#">
+                                                    <span class="item-name">Quiz 1</span>
+                                                    <div class="course-item-meta">
+
+                                                        <span class="item-meta count-questions">14 questions</span>
+                                                        <span class="item-meta duration">10 min</span><i class="fa item-meta course-item-status trans"></i>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="section">
+                                        <div class="section-header">
+                                            <div class="section-left">
+                                                <h5 class="section-title">Section 2</h5>
+                                                <p class="section-desc">Dacere agemusque constantius concessis elit videmusne quia stoici constructio dissimillimas audiunt homerus commendationes</p>
+                                            </div>
+                                        </div>
+
+                                        <ul class="section-content">
+                                            <li class="course-item has-status course-item-lp_lesson">
+                                                <a class="section-item-link" href="#">
+                                                    <span class="item-name">Lesson 1</span>
+                                                    <div class="course-item-meta">
+                                                        <span class="item-meta duration">10 min</span>
+                                                        <i class="item-meta course-item-status"></i>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-instructor" role="tabpanel" aria-labelledby="nav-instructor-tab">
+                        <!-- Course instructor start -->
+                        <div class="courses-instructor">
+                            <div class="single-instructor-box">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="instructor-image">
+                                            <img src="assets/images/blog/author.jpg" alt="" class="img-fluid">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-8 col-md-8">
+                                        <div class="instructor-content">
+                                            <h4><a href="#">EduHash</a></h4>
+                                            <span class="sub-title"><p>Web Developer</p></span>
+
+                                            <p>Jone Smit is a celebrated photographer, author, and writer who brings passion to everything he does.</p>
+
+                                            <ul class="user-social-links">
+                                                <li><a href="#"> <i class="fab fa-facebook"></i></a></li>
+
+                                                <li><a href="#"> <i class="fab fa-twitter"></i></a></li>
+
+                                                <li><a href="#"> <i class="fab fa-linkedin"></i></a></li>
+
+                                                <li><a href="#"> <i class="fab fa-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Conurse  instructor end -->
+                    </div>
+                    <div class="tab-pane fade" id="nav-feedback" role="tabpanel" aria-labelledby="nav-feedback-tab">
+                        <div id="course-reviews">
+                            <h3 class="course-review-head">Reviews</h3>
+                            <ul class="course-reviews-list">
+                                <li>
+                                    <div class="course-review">
+                                        <div class="course-single-review">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-3">
+                                                    <div class="user-image">
+                                                        <img src="assets/images/blog/author.jpg" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-9 col-md-9">
+                                                    <div class="user-content user-review-content">
+                                                        <h4 class="user-name">eduhash</h4>
+                                                        <div class="rating review-stars-rated">
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star-half"></i></a>
+                                                        </div>
+                                                        <p class="review-title">Cover all topicc  </p>
+                                                        <div class="review-text">
+                                                            <div class="review-content">
+                                                                The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="course-review">
+                                        <div class="course-single-review">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-3">
+                                                    <div class="user-image">
+                                                        <img src="assets/images/blog/author.jpg" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-9 col-md-9">
+                                                    <div class="user-content user-review-content">
+                                                        <h4 class="user-name">eduhash</h4>
+                                                        <div class="rating review-stars-rated">
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star"></i></a>
+                                                            <a href="#"><i class="fa fa-star-half"></i></a>
+                                                        </div>
+                                                        <p class="review-title">Cover all topicc  </p>
+
+                                                        <div class="review-text">
+                                                            <div class="review-content">
+                                                                The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Course Sidebar start -->
+                <div class="course-sidebar course-sidebar-2">
+                    <div class="course-widget course-details-info">
+                        <ul>
+                            <li>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="far fa-building"></i></span>
+                                    @Model.CompanyName
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="far fa-clock"></i></span>
+                                    @Model.CreateDate.ToString("MM/dd/yyyy")
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <span><i class="far fa-envelope"></i></span>
+                                    <a href="mailto:@Model.Appeal">
+                                        @Model.Appeal
+                                    </a>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Course Sidebar end -->
+            </div>
+        </div>
+    </div>
+</section>

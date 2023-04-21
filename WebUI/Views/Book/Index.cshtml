@@ -1,0 +1,94 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Book>
+
+<section class="page-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-8">
+                <div class="title-block">
+                    <h1>Kitablar</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a asp-controller="home" asp-action="index">Ana səhifə</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            Kitablar
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding course">
+    <div class="course-top-wrap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <p>Ümumi @ViewBag.BooksCount kitab</p>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="topbar-search">
+                        <form id="my_form" method="post" asp-controller="Book" asp-action="Search">
+                            <input type="text" placeholder="Axtarılacaq kitab" class="form-control" name="word">
+                            <label><a onclick="document.getElementById('my_form').submit();"><i class="fa fa-search"></i></a></label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            @if (ViewBag.BooksCount == 0)
+            {
+                <h4>Kitab yoxdur</h4>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6 col-md-12">
+                        <div class="course-block course-list-item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8  col-sm-8">
+                                    <div class="course-content">
+                                        <h5><a href="#">@item.Name</a></h5>
+                                    </div>
+                                </div>
+                                <a class="btn btn-main btn-sm" style="float:right; color:white" asp-controller="Book" asp-action="Download" asp-route-id="@item.Id">Yüklə</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+
+        @if (ViewBag.BooksCount != 0)
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="post-navigation text-center">
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+                                                    new PagedListRenderOptions
+                                                         {
+                                                    LiElementClasses = new string[] { "page-item" },
+                                                    PageClasses = new string[] { "page-link" }
+                                                         })
+                    </nav>
+                </div>
+            </div>
+
+        }
+    </div>
+</section>

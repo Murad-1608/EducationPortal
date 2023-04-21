@@ -1,0 +1,30 @@
+﻿@using WebUI.Areas.User.Models
+@{
+    Layout = "_Layout";
+}
+
+@model VacancyOnlyLinkModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+
+
+<div class="card-body">
+    <br />
+    <form class="forms-sample" asp-controller="vacancy" asp-action="addOnlyLink" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputName1">Başlıq</label>
+            <input type="text" asp-for="Name" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Şirkət</label>
+            <input type="text" asp-for="CompanyName" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Link</label>
+            <input type="text" asp-for="Appeal" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Appeal" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-info">Təstiqlə</button>
+            <a asp-action="Index" asp-controller="Vacancy" class="btn btn-white btn-sm">Ləğv et</a>
+        </div>
+    </form>
+</div>

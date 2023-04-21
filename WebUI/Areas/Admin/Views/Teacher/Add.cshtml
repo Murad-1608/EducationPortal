@@ -1,0 +1,54 @@
+﻿@using WebUI.Areas.Admin.Models;
+@{
+    Layout = "_Layout";
+}
+@model TeacherModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="card-body">
+    <h3>Yeni müəllim əlavə et</h3>
+    <br />
+    <form class="forms-sample" asp-controller="Teacher" asp-action="Add" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputName1">İstifadəçi adı</label>
+            <input type="text" asp-for="UserName" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Ad</label>
+            <input type="text" asp-for="Name" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Soyad</label>
+            <input type="text" asp-for="Surname" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Surname" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Email</label>
+            <input type="email" asp-for="Email" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Password</label>
+            <input type="text" asp-for="Password" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Telefon nömrəsi</label>
+            <input type="text" asp-for="PhoneNumber" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Elmi dərəcə</label>
+            <input type="text" asp-for="AcademicDegree" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="AcademicDegree" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Bioqrafiya</label>
+            <textarea type="text" asp-for="Bio" class="form-control" id="exampleInputName1" placeholder=""></textarea>
+            <span asp-validation-for="Bio" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Şəkil</label>
+            <input type="file" asp-for="Image" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Image" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-info">Təstiqlə</button>
+            <a asp-action="Index" asp-controller="Teacher" class="btn btn-white btn-sm">Ləğv et</a>
+        </div>
+    </form>
+</div>

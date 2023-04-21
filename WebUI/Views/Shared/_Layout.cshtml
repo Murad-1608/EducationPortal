@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+<!-- Mirrored from www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Apr 2023 18:58:05 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Education LMS template by Dreambuzz" />
+    <meta name="keywords"
+          content="milli aviasiya,education,energetika,avtomatika,course,online,learning,caoch,training,tutor" />
+    <meta name="author" content="themeturn.com" />
+
+    <title>Energetika-avtomatika</title>
+
+    <link rel="icon" type="image/x-icon" href="~/Images/HeaderLogo.png">
+    <!-- Mobile Specific Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="~/Vitrin1/www.jq22.com/jquery/bootstrap-4.2.1.css" />
+    <!-- Iconfont Css -->
+    <link rel="stylesheet" href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/flaticon/flaticon.css" />
+    <!-- animate.css -->
+    <link rel="stylesheet" href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/animate-css/animate.css" />
+    <link rel="stylesheet"
+          href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/owl/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+          href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/owl/assets/owl.theme.default.min.css" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/css/style.css" />
+    <link rel="stylesheet" href="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/css/responsive.css" />
+</head>
+
+<body id="top-header">
+    <header>
+        <!-- Main Menu Start -->
+        <div class="site-navigation main_menu menu-style-2" id="mainmenu-area">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" asp-controller="home" asp-action="index">
+                        <img src="~/Images/AviationLogo.png"
+                             alt="Eduhash"
+                             class="img-fluid" />
+                    </a>
+
+                    <!-- Toggler -->
+
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarMenu"
+                            aria-controls="navbarMenu"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="fa fa-bars"></span>
+                    </button>
+
+                    <!-- Collapse -->
+                    <div class="collapse navbar-collapse" id="navbarMenu">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link js-scroll-trigger" asp-controller="home" asp-action="index">
+                                    Ana səhifə
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link js-scroll-trigger" asp-controller="teacher" asp-action="index">
+                                    Müəllimlər
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link js-scroll-trigger" asp-controller="book" asp-action="index">
+                                    Kitab
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link js-scroll-trigger" asp-controller="vacancy" asp-action="index">
+                                    Vakansiya
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="announcement" asp-action="index" class="nav-link js-scroll-trigger">Elan</a>
+                            </li>
+
+
+                        </ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="header-login">
+                                <a href="/user/book" class="btn btn-main btn-sm"><i class="fa fa-user"></i></a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="header-login">
+                                <a asp-controller="auth" asp-action="login" class="btn btn-main btn-sm">Daxil ol</a>
+                            </div>
+                        }
+
+                    </div>
+                    <!-- / .navbar-collapse -->
+                </div>
+                <!-- / .container -->
+            </nav>
+        </div>
+    </header>
+
+
+    @RenderBody()
+
+
+    <!-- Footer section start -->
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; @DateTime.Now.Year NAA. All rights reserved.</small>
+        </div>
+    </footer>
+
+    @*<section class="footer-2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-sm-6 col-md-8 col-xl-3 col-sm-6">
+                        <a class="navbar-brand" asp-controller="home" asp-action="index">
+                            <img src="https://naa.edu.az/wp-content/uploads/2021/11/logo_text_dark.svg"
+                                 alt="Eduhash"
+                                 class="img-fluid" /><br />
+                            <h2>Copyright © 2021 NAA. All rights reserved.</h2>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-7 ml-auto col-lg-7 col-md-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-xl-4 col-sm-4 col-md-4">
+
+                            </div>
+
+                            <div class="col-lg-4 col-xl-4 col-sm-4 col-md-4">
+                                <div class="footer-widget mb-5 mb-lg-0">
+                                    <ul class="list-unstyled footer-links">
+                                        <li><a asp-controller="home">Ana səhifə</a></li>
+                                        <li><a asp-controller="teacher">Müəllimlər</a></li>
+                                        <li><a asp-controller="book">Kitab</a></li>
+                                        <li><a asp-controller="Announcement">Elan</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-xl-4 col-sm-4 col-md-4">
+                                <div class="widget footer-about mb-5 mb-lg-0">
+                                    <h5 class="widget-title text-gray">About us</h5>
+                                    <ul class="list-unstyled footer-info">
+                                        <li><span>No:</span>(+994 12) 525 98 08</li>
+                                        <li>
+                                            <span>Email:</span><a mailto:info@naa.edu.az"
+                                                                  class="__cf_email__">info@naa.edu.az</a>
+                                        </li>
+                                        <li>
+                                            <span>Ünvan:</span><a href="https://www.google.com/maps/search/National+Aviation+Academy,+National+Aviation+Academy,+Mardakan/40.4521384,50.0642972,17z/data=!3m1!4b1">
+                                                Bakı şəh., Mərdəkan pr., 30, AZ1045
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </section>*@
+
+    <!-- Footer section End -->
+
+    <div class="fixed-btm-top">
+        <a href="#top-header" class="js-scroll-trigger scroll-to-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+
+    <!--
+    Essential Scripts
+    =====================================-->
+    <!-- Main jQuery -->
+    <script src="~/Vitrin1/www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <!-- Bootstrap 4.5 -->
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/bootstrap/bootstrap.js"></script>
+    <!-- Counterup -->
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/counterup/waypoint.js"></script>
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/counterup/jquery.counterup.min.js"></script>
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/jquery.isotope.js"></script>
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/imagesloaded.html"></script>
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/owl/owl.carousel.min.js"></script>
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/vendors/google-map/map.js"></script>
+    <script src="https://ditu.google.cn/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&amp;callback=initMap"></script>
+    <script src="~/Vitrin1/www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/assets/js/script.js"></script>
+</body>
+
+<!-- Mirrored from www.jq22.com/demo/jquerybootstrapjiaoyumoban202011030925/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Apr 2023 18:58:09 GMT -->
+</html>

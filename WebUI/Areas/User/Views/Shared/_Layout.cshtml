@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="~/Images/TeacherPanelicon.png">
+
+    <title>Müəllim</title>
+
+    <link href="~/AdminTemplate/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/AdminTemplate/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="~/AdminTemplate/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="~/AdminTemplate/css/animate.css" rel="stylesheet">
+    <link href="~/AdminTemplate/css/style.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/writer/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/writer/assets/vendors/css/vendor.bundle.base.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="shortcut icon" href="~/writer/assets/images/favicon.ico" />
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+
+
+                    @await Component.InvokeAsync("TeacherDetailLeftNavbar")
+
+
+
+                    <li>
+                        <a href="/user/teacher"><i class="fa fa-user"></i> <span class="nav-label">Profil</span></a>
+                    </li>
+                    <li>
+                        <a href="/user/book"><i class="fa fa-book"></i> <span class="nav-label">Kitablar</span></a>
+                    </li>
+                    <li>
+                        <a href="/user/vacancy"><i class="fa fa-search"></i><span class="nav-label">Vakansiyalar</span></a>
+                    </li>
+                    <li>
+                        <a href="/user/announcement"><i class="fa fa-address-book-o"></i><span class="nav-label">Elanlar</span></a>
+                    </li>
+                    <li>
+                        <a href="/home/index"><i class="fa fa-laptop"></i> <span class="nav-label">Əsas səhifə</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <a href="/Auth/LogOut">
+                                <i class="fa fa-sign-out"></i>Çıxış et
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content  animated fadeInRight">
+
+                @RenderBody()
+            </div>
+            <br />
+            <div class="footer">
+                <div>
+                    <strong>Müəllim paneli</strong>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="~/AdminTemplate/js/jquery-3.1.1.min.js"></script>
+    <script src="~/AdminTemplate/js/popper.min.js"></script>
+    <script src="~/AdminTemplate/js/bootstrap.js"></script>
+    <script src="~/AdminTemplate/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/AdminTemplate/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/AdminTemplate/js/inspinia.js"></script>
+    <script src="~/AdminTemplate/js/plugins/pace/pace.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(document.body).on("click", ".client-link", function (e) {
+                e.preventDefault()
+                $(".selected .tab-pane").removeClass('active');
+                $($(this).attr('href')).addClass("active");
+            });
+
+        });</script>
+
+</body>
+</html>

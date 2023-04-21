@@ -1,0 +1,60 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Announcement>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+@if (Model.Count == 0)
+{
+    <h3>Elan yoxdur</h3>
+    <br />
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Başlıq</th>
+                <th>Qoyulma tarixi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].Title</td>
+                    <td>@Model[i].Date.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        <a asp-controller="announcement" asp-action="delete" asp-route-id="@Model[i].Id" class="btn btn-danger" onclick="return confirm('Silmək istəyirsiniz?')">Sil</a>
+                        @if (Model[i].Content == null)
+                        {
+                            <a asp-controller="announcement" asp-action="updateMeeting" asp-route-id="@Model[i].Id" class="btn btn-warning">Yenilə</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="announcement" asp-action="update" asp-route-id="@Model[i].Id" class="btn btn-warning">Yenilə</a>
+                        }
+
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+}
+
+
+
+<a href="/user/announcement/add/" class="btn btn-info">Yeni elan elavə et</a>
+<a href="/user/announcement/addmeeting/" class="btn btn-info">Yeni görüş elavə et</a>

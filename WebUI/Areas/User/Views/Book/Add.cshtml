@@ -1,0 +1,26 @@
+﻿@using WebUI.Areas.User.Models
+@{
+    Layout = "_Layout";
+}
+@model BookModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="card-body">
+    <h3>Yeni kitab əlavə et</h3>
+    <br />
+    <form class="forms-sample" asp-controller="Book" asp-action="Add" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputName1">Başlıq</label>
+            <input type="text" asp-for="Name" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Kitab və ya fayl</label>
+            <input type="file" asp-for="BookUrl" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="BookUrl" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-info">Təstiqlə</button>
+            <a asp-action="Index" asp-controller="Book" class="btn btn-white btn-sm">Ləğv et</a>
+        </div>
+    </form>
+</div>

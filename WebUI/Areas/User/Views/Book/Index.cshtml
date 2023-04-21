@@ -1,0 +1,49 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Book>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+@if (Model.Count == 0)
+{
+    <h3>Kitab yoxdur</h3>
+    <br />
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Ad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].Name</td>
+                    <td>
+                        <a asp-controller="Book" asp-action="Delete" asp-route-id="@Model[i].Id" class="btn btn-danger" onclick="return confirm('Silmək istəyirsiniz?')">Sil</a>
+                        <a href="/Book/Download/@Model[i].Id" class="btn btn-success">Yüklə</a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+}
+
+
+
+<a href="/User/Book/Add/" class="btn btn-info">Yeni kitab elavə et</a>

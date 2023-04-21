@@ -1,0 +1,38 @@
+﻿@using WebUI.Areas.User.Models;
+@{
+    Layout = "_Layout";
+}
+@model AnnouncementModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<link rel="stylesheet" href="~/ProfilPhotoTemplate/css/Style.css">
+<script src="~/ProfilPhotoTemplate/js/site.js"></script>
+
+<div class="card-body">
+    <h3>Yeni müəllim əlavə et</h3>
+    <br />
+    <form class="forms-sample" asp-controller="announcement" asp-action="update" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <br />
+            <label for="exampleInputName1">Başlıq</label>
+            <input type="text" asp-for="Title" class="form-control" id="exampleInputName1" placeholder="">
+            <input type="hidden" asp-for="Id" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Mövzu</label>
+            <textarea type="text" asp-for="Content" class="form-control" id="exampleInputName1" placeholder=""></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Şəkil</label>
+            <input type="file" asp-for="Image" class="form-control" id="exampleInputName1" placeholder="">
+            <input type="hidden" asp-for="ImageString" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Image" class="text-danger"></span><br />
+            <span class="text-warning">Şəkil qoymaq istəmirsinizsə boş qoyun</span>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-info">Təstiqlə</button>
+            <a asp-action="index" asp-controller="announcement" class="btn btn-white btn-sm">Ləğv et</a>
+
+        </div>
+    </form>
+</div>

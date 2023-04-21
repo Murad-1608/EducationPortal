@@ -1,0 +1,62 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Vacancy>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+@if (Model.Count == 0)
+{
+    <h3>Vakansiya yoxdur</h3>
+    <br />
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Başlıq</th>
+                <th>Şirkət</th>
+                <th>Qoyulma tarixi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].Name</td>
+                    <td>@Model[i].CompanyName</td>
+                    <td>@Model[i].CreateDate.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        <a asp-controller="Vacancy" asp-action="Delete" asp-route-id="@Model[i].Id" class="btn btn-danger" onclick="return confirm('Silmək istəyirsiniz?')">Sil</a>
+                        @if (@Model[i].JobInformation == null)
+                        {
+                            <a asp-controller="Vacancy" asp-action="UpdateOnlyLink" asp-route-id="@Model[i].Id" class="btn btn-warning">Yenilə</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Vacancy" asp-action="Update" asp-route-id="@Model[i].Id" class="btn btn-warning">Yenilə</a>
+                        }
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+}
+
+
+
+<a href="/user/vacancy/add/" class="btn btn-info">Yeni vakansiya elavə et</a>
+<a asp-action="addOnlyLink" asp-controller="vacancy" class="btn btn-info btn-sm">Sadəcə link ilə elavə et</a>
+

@@ -1,0 +1,93 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Vacancy>
+
+<section class="page-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-8">
+                <div class="title-block">
+                    <h1>Vakansiyalar</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a asp-controller="home" asp-action="index">Ana səhifə</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            Vakansiyalar
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding course">
+    <div class="course-top-wrap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <p>Ümumi @ViewBag.VacanciesCount vakansiya</p>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="topbar-search">
+                        <form id="my_form" method="post" asp-controller="vacancy" asp-action="search">
+                            <input type="text" placeholder="Axtarılacaq vakansiya" class="form-control" name="word">
+                            <label><a onclick="document.getElementById('my_form').submit();"><i class="fa fa-search"></i></a></label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-block" style="height:200px">
+                        <div class="course-content">
+                            <h4>@item.Name</h4>
+                            <span class="course-cat">@item.CompanyName</span>
+                        </div>
+                    </div>
+                    @if (item.JobInformation == null)
+                    {
+                        <a class="btn btn-main btn-sm form-control" href="@item.Appeal" style="color:white; vertical-align:bottom">Müraciət</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-main btn-sm form-control" asp-controller="vacancy" asp-action="detail" asp-route-id="@item.Id" style="color:white">Müraciət</a>
+                    }
+                </div>
+            }
+            <br />
+            <br />
+        </div>
+
+        <div class="row">
+            @if (ViewBag.VacanciesCount != 0)
+            {
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="post-navigation text-center">
+                            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+                                                        new PagedListRenderOptions
+                                                             {
+                                                        LiElementClasses = new string[] { "page-item" },
+                                                        PageClasses = new string[] { "page-link" }
+                                                             })
+                        </nav>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

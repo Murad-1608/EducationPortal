@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin panel</title>
+
+    <link href="~/AdminTemplate/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/AdminTemplate/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="~/AdminTemplate/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="~/AdminTemplate/css/animate.css" rel="stylesheet">
+    <link href="~/AdminTemplate/css/style.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/writer/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/writer/assets/vendors/css/vendor.bundle.base.css">
+
+
+
+    <link rel="shortcut icon" href="~/writer/assets/images/favicon.ico" />
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+
+
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" src="~/Images/Teacher/admin.png" style="width:50px; height:50px" />
+                            <br />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">Admin</span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            Admin
+                        </div>
+                    </li>
+
+
+
+                    <li>
+                        <a href="/Writer/Update/"><i class="fa fa-diamond"></i> <span class="nav-label">Profil</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Teacher/"><i class="fa fa-user"></i> <span class="nav-label">Müəllimlər</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Book/"><i class="fa fa-book"></i> <span class="nav-label">Kitablar</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Book/Index/"><i class="fa fa-envelope"></i> <span class="nav-label">İstifadəçilər</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/SocialMedia/Update"><i class="fa fa-envelope"></i> <span class="nav-label">Sosyal medya</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/About/Update"><i class="fa fa-envelope"></i> <span class="nav-label">Haqqımızda</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/ContactUs/"><i class="fa fa-envelope"></i> <span class="nav-label">Əlaqə</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="Axtarılacaq söz ..." class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        @*@await Component.InvokeAsync("WriterMessageNotification")*@
+
+                        <li>
+                            <a href="/Auth/LogOut">
+                                <i class="fa fa-sign-out"></i>Çıxış et
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content  animated fadeInRight">
+
+                @RenderBody()
+            </div>
+            <br />
+            <div class="footer">
+                <div>
+                    <strong>Admin Panel</strong>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="~/AdminTemplate/js/jquery-3.1.1.min.js"></script>
+    <script src="~/AdminTemplate/js/popper.min.js"></script>
+    <script src="~/AdminTemplate/js/bootstrap.js"></script>
+    <script src="~/AdminTemplate/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/AdminTemplate/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/AdminTemplate/js/inspinia.js"></script>
+    <script src="~/AdminTemplate/js/plugins/pace/pace.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(document.body).on("click", ".client-link", function (e) {
+                e.preventDefault()
+                $(".selected .tab-pane").removeClass('active');
+                $($(this).attr('href')).addClass("active");
+            });
+
+        });</script>
+
+</body>
+</html>

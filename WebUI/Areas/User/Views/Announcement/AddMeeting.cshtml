@@ -1,0 +1,26 @@
+﻿@using WebUI.Areas.User.Models
+@{
+    Layout = "_Layout";
+}
+
+@model MeetingModel  
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+
+
+<div class="card-body">
+    <br />
+    <form class="forms-sample" asp-controller="announcement" asp-action="addMeeting" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputName1">Başlıq</label>
+            <input type="text" asp-for="Title" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <br />
+            <label for="exampleInputName1">Link</label>
+            <input type="text" asp-for="Url" class="form-control" id="exampleInputName1" placeholder="">
+            <span asp-validation-for="Url" class="text-danger"></span>
+            <br />
+            <button type="submit" class="btn btn-info">Təstiqlə</button>
+            <a asp-action="index" asp-controller="announcement" class="btn btn-white btn-sm">Ləğv et</a>
+        </div>
+    </form>
+</div>

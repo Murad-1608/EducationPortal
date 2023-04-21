@@ -1,0 +1,99 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Vacancy>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-8">
+                    <div class="title-block">
+                        <h1>Vakansiyalar</h1>
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a asp-controller="home" asp-action="index">Ana səhifə</a>
+                            </li>
+                            <li class="list-inline-item">/</li>
+                            <li class="list-inline-item">
+                                Vakansiyalar
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding course">
+        <div class="course-top-wrap">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <p>@ViewBag.VacanciesCount vakansiya</p>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="topbar-search">
+                            <form id="my_form" method="post" asp-controller="vacancy" asp-action="search">
+                                <input type="text" placeholder="Axtarılacaq vakansiya" class="form-control" name="word">
+                                <label><a onclick="document.getElementById('my_form').submit();"><i class="fa fa-search"></i></a></label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+
+                @if (ViewBag.VacanciesCount == 0)
+                {
+                    <h4>Belə vakansiya mövcud deyildir</h4>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="course-block">
+                                <div class="course-content">
+                                    <h4><a href="#">@item.Name</a></h4>
+                                    <span class="course-cat">@item.CompanyName</span>
+                                </div>
+                                @if (item.JobInformation == null)
+                                {
+                                    <a class="btn btn-main btn-sm form-control" href="@item.Appeal" style="color:white">Müraciət</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-main btn-sm form-control" asp-controller="vacancy" asp-action="detail" asp-route-id="@item.Id" style="color:white">Müraciət</a>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="post-navigation text-center">
+                        <ul>
+                            <li class="page-num active" aria-current="page">
+                                <span class="page-url">
+                                    1
+                                    <span class="sr-only">(current)</span>
+                                </span>
+                            </li>
+                            <li class="page-num"><a class="page-url" href="#">2</a></li>
+                            <li class="page-num"><a class="page-url" href="#">3</a></li>
+                            <li class="page-num"><a class="page-url" href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>

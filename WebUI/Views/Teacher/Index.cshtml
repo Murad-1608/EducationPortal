@@ -1,0 +1,71 @@
+﻿@using Entity.Concrete;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Teacher>
+
+
+<section class="page-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-8">
+                <div class="title-block">
+                    <h1>Müəllimlər</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a asp-controller="Home">Ana Səhifə</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            Müəllimlər
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding course">
+
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-block">
+                        <div class="course-img">
+                            <img src="~/Images/Teacher/@item.Image" alt="" class="img-fluid" style="width:370px; height:229px;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-cat">@item.AcademicDegree</span>
+                            <h4><a href="#">@item.Name @item.Surname</a></h4>
+                            <div class="course-meta">
+                                <span class="course-student"><i class="fa fa-phone"></i>@item.AppUser.PhoneNumber</span>
+                                <a href="mailto:@item.AppUser.Email"><span class="course-duration"><i class="far fa-envelope"></i>@item.AppUser.Email</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+        @if (ViewBag.TeachersCount != 0)
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="post-navigation text-center">
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+                                                    new PagedListRenderOptions
+                                                         {
+                                                    LiElementClasses = new string[] { "page-item" },
+                                                    PageClasses = new string[] { "page-link" }
+                                                         })
+                    </nav>
+                </div>
+            </div>
+
+        }
+    </div>
+</section>
