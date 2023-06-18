@@ -172,6 +172,10 @@ BUTTONS STYLE
   background: #385777;
 }
 
+
+
+
+
 .btn-main-2 {
   border-color: #385777;
   color: #fff;
@@ -578,10 +582,25 @@ Header TopBar
 ================*/
 .banner {
     padding: 140px 0px;
-    background: url("../images/banner/VitrinImage.jpg") center center no-repeat;
+    background: url("../images/banner/VitrinImage.jfif") center center no-repeat;
     background-size: cover;
     position: relative;
 }
+
+.cb-slideshow li:nth-child(1) span {
+    background-image: url(../images/1.jpg)
+}
+
+.cb-slideshow li:nth-child(2) span {
+    background-image: url(../images/2.jpg);
+    animation-delay: 6s;
+}
+
+.cb-slideshow li:nth-child(3) span {
+    background-image: url(../images/3.jpg);
+    animation-delay: 12s;
+} 
+
 
 .banner:before {
   position: absolute;

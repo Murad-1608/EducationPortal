@@ -29,7 +29,7 @@ namespace WebUI.Controllers
             {
                 AppUser userEmail = await userManager.FindByEmailAsync(loginModel.Email);
                 AppUser userName = await userManager.FindByNameAsync(loginModel.Email);
-                
+
                 AppUser user = userName ?? userEmail;
 
                 if (user != null)
