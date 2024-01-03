@@ -5,8 +5,8 @@ using X.PagedList;
 
 namespace WebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
-    [Authorize]
     public class BookController : Controller
     {
         private readonly IBookService bookService;

@@ -9,8 +9,8 @@ using X.PagedList;
 
 namespace WebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
-    [Authorize]
     public class TeacherController : Controller
     {
         private readonly ITeacherService teacherService;
